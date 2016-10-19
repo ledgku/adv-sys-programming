@@ -4,6 +4,8 @@
 #include <sys/time.h>
 
 int readaline_and_out(FILE *fin, FILE *fout);
+int readaline_and_reverse_out(FILE *fin, FILE *fout);
+char *strrev(char *str);
 
 int main(int argc, char *argv[])
 {
@@ -34,13 +36,13 @@ int main(int argc, char *argv[])
     gettimeofday(&before, NULL);
     do {
         if (!eof1) {
-            if (!readaline_and_out(file1, fout)) {
+            if (!readaline_and_reverse_out(file1, fout)) {
                 line1++; lineout++;
             } else
                 eof1 = 1;
         }
         if (!eof2) {
-            if (!readaline_and_out(file2, fout)) {
+            if (!readaline_and_reverse_out(file2, fout)) {
                 line2++; lineout++;
             } else
                 eof2 = 1;
@@ -84,3 +86,48 @@ int readaline_and_out(FILE *fin, FILE *fout)
     return 0;
 }
 
+/* Read a line from fin, reverse string and write it to fout */
+/* return 1 if fin meets end of file */
+int readaline_and_reverse_out(FILE *fin, FILE *fout)
+{    
+    int ch, count = 0;
+    char tempStr[81];
+    char *rev;
+
+    do {
+        if ((ch = fgetc(fin)) == EOF) {
+            if (!count)
+                return 1;
+            else {
+                tempStr[count] = 0x0a;
+                break;
+            }
+        }
+        tempStr[count] = ch;
+        count++;
+    } while (ch != 0x0a);
+    
+    tempStr[count] = '\0';
+
+    rev = strrev(tempStr);
+    fputs(rev, fout);
+
+    return 0;
+}
+
+/* Reverse string function */
+/* return reversed string */
+char *strrev(char *str)
+{
+    char *p1, *p2;
+
+    if (! str || ! *str)
+        return str;
+    for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2)
+    {
+        *p1 ^= *p2;
+        *p2 ^= *p1;
+        *p1 ^= *p2;
+    }
+    return str;
+}

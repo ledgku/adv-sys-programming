@@ -29,6 +29,7 @@
 *.hex
 gen
 merge
+merge_reverse
 epoll
 f_out
 

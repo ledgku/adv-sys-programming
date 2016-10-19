@@ -21,3 +21,7 @@ File
 - gcc -O1 merge.c -o merge
 - gcc -O2 merge.c -o merge
 - gcc -O3 merge.c -o merge
+
+### fputc에서 fputs로 변경
+: 매 글자마다 fgetc() 후 fputc() 하는 방법에서 한 라인을 배열에 저장하고 fputs() 하는 방법으로 변경
+
