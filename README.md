@@ -13,11 +13,11 @@ File
 
 ## 시도
 
-1. gcc -g 옵션 제거(바이너리 파일에 디버깅 정보 삽입하는 옵션)
-* gcc merge.c -o merge
+### gcc -g 옵션 제거(바이너리 파일에 디버깅 정보 삽입하는 옵션)
+- gcc merge.c -o merge
 
-2. gcc 컴파일 최적화 옵션 변경
-* gcc -O merge.c -o merge
-* gcc -O1 merge.c -o merge
-* gcc -O2 merge.c -o merge
-* gcc -O3 merge.c -o merge
+### gcc 컴파일 최적화 옵션 변경
+- gcc -O merge.c -o merge
+- gcc -O1 merge.c -o merge
+- gcc -O2 merge.c -o merge
+- gcc -O3 merge.c -o merge
