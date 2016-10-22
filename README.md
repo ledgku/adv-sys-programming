@@ -31,6 +31,8 @@ File
 ### fputc에서 fputs로 변경
 : 매 글자마다 fgetc() 후 fputc() 하는 방법에서 한 라인을 배열에 저장하고 fputs() 하는 방법으로 변경
 
+### fgetc()와 fputc()를 read()와 write()로 변경
+: buffered I/O에 비해 속도가 느려 사용하지 않음
 
 ### 입력 파일 크기의 버퍼를 동적할당하고 fread로 전체를 읽어 strtok_r로 파싱한 라인을 fwrite로 쓰기
 - Merge 대상 파일의 크기만큼 메모리 동적할당 (100MB로 제한)
