@@ -1,7 +1,14 @@
+/********************************************************
+*  ÍKookmin University
+*   Advanced System Programming
+*   
+*   Assignment 1
+*   Computer Science 20093319 DongkyuLee
+********************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include <unistd.h>
 #include <string.h>
 #include <sys/time.h>
 #include <sys/stat.h>
@@ -54,22 +61,35 @@ int main(int argc, char *argv[])
     buf_file1 = (char *) malloc(file1_size);
     buf_file2 = (char *) malloc(file2_size);
 
-    fread(buf_file1, 1, file1_size, file1);
-    fread(buf_file2, 1, file2_size, file2);
+    if (fread(buf_file1, 1, file1_size, file1) < 1)
+    {
+        goto leave2;
+    }
+
+    if (fread(buf_file2, 1, file2_size, file2) < 1)
+    {
+        goto leave2;
+    }
 
     for (str1=buf_file1, str2=buf_file2; ;str1=NULL, str2=NULL)
     {
         token1 = strtok_r(str1, "\n", &saveptr1);
         token2 = strtok_r(str2, "\n", &saveptr2);
-        if (token1 == NULL && token2 == NULL)
-            break;
+        
         if (token1 != NULL)
         {
             fprintf(fout, "%s\n", strrev(token1));
+            ++line1;
         }
         if (token2 != NULL)
         {
             fprintf(fout, "%s\n", strrev(token2));
+            ++line2;
+            continue;
+        }
+        if (token1 == NULL && token2 == NULL)
+        {
+            break;
         }
     }
 
@@ -77,6 +97,8 @@ int main(int argc, char *argv[])
 
     free(buf_file1);
     free(buf_file2);
+
+    lineout = line1 + line2;
 
     duration = (after.tv_sec - before.tv_sec) * 1000000 + (after.tv_usec - before.tv_usec);
     printf("Processing time = %d.%06d sec\n", duration / 1000000, duration % 1000000);
