@@ -38,3 +38,8 @@ File
 - Merge 대상 파일의 크기만큼 메모리 동적할당 (100MB로 제한)
 - fread()로 파일 전체를 동적할당한 메모리로 읽음
 - strtok_r()로 라인별로 파싱하여 파일에 출력
+
+## 시도해 볼 것
+1. #pragma omp
+2. malloc return value check
+3. fopen, fclose, fread, fwrite, fprintf -> system call
