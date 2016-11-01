@@ -41,7 +41,7 @@ File
 
 ## 시도해 볼 것
 1. #pragma omp
-2. malloc return value check
+2. malloc return value check (free)
 3. fopen, fclose, fread, fwrite, fprintf -> system call
 4. setvbuf
 5. fsize -> fstat()을 사용
