@@ -46,3 +46,4 @@ File
 4. setvbuf
 5. fsize -> fstat()을 사용
 6. convention
+7. string reverse function -> performance check, change to readability code or not. why?
