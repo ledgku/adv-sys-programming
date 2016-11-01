@@ -44,3 +44,5 @@ File
 2. malloc return value check
 3. fopen, fclose, fread, fwrite, fprintf -> system call
 4. setvbuf
+5. fsize -> fstat()을 사용
+6. convention
