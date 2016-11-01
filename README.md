@@ -43,3 +43,4 @@ File
 1. #pragma omp
 2. malloc return value check
 3. fopen, fclose, fread, fwrite, fprintf -> system call
+4. setvbuf
