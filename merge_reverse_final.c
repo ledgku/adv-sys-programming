@@ -16,7 +16,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#define FILE_MAX_SIZE (1024*1024*100)
+#define FILE_MAX_SIZE (1024*1024*100*2)
 #define DELIM "\n"
 
 char *strrev(char *str);
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
     {
         token1 = strtok_r(str1, DELIM, &saveptr1);
         token2 = strtok_r(str2, DELIM, &saveptr2);
-        
+
         if (token1 != NULL)
         {
             fprintf(fout, "%s\n", strrev(token1));
@@ -172,3 +172,4 @@ char *strrev(char *str)
 
     return str;
 }
+
