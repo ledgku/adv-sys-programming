@@ -8,7 +8,8 @@
 File
 
 - gen.c   : n 개의  m MB의 크기의 text 파일 만들기 (file merge용)
-- merge.c : merge.c 두개의 파일을 merge 하고 시간을 재는 예제 소스 
+- merge.c : merge.c 두개의 파일을 merge 하고 시간을 재는 예제 소스 (Template)
+- merge_reverse_final.c : 두개의 파일을 읽어 line by line으로 reverse하여 merge 하고 시간을 재는 소스 (제출 소스)
 - chat.c  : chatting을 위한 소스 (아직 준비 안됨)
 
 ## 실행 방법
@@ -17,7 +18,7 @@ File
 3. gcc merge_reverse_final.c -o merge_reverse_final
 4. ./run.sh merge_reverse_final f_out 5
 
-## 시도
+## Stage 1
 
 ### gcc -g 옵션 제거(바이너리 파일에 디버깅 정보 삽입하는 옵션)
 - gcc merge.c -o merge
@@ -39,7 +40,7 @@ File
 - fread()로 파일 전체를 동적할당한 메모리로 읽음
 - strtok_r()로 라인별로 파싱하여 파일에 출력
 
-## 시도해 볼 것
+### 시도해 볼 것
 1. #pragma omp
 2. malloc return value check (free)
 3. fopen, fclose, fread, fwrite, fprintf -> system call
@@ -47,3 +48,9 @@ File
 5. fsize -> fstat()을 사용
 6. convention
 7. string reverse function -> performance check, change to readability code or not. why?
+
+## Stage 2
+- stat() -> fstat(), 파일 open 횟수 2회 감소
+- malloc 예외처리 추가
+- 읽는 파일의 fopen(), fclose(), fread()를 open(), close(), read()로 변경
+- setvbuf() 사용, 출력 파일 접근 횟수를 줄이기 위해 버퍼링 사용(_IOFBF)
