@@ -117,15 +117,11 @@ int main(int argc, char *argv[])
         
         if (token1 != NULL)
         {
-            //write(fout, strrev(token1), strlen(token1));
-            //write(fout, "\n", 1);
             fprintf(fout, "%s\n", strrev(token1));
             ++line1;
         }
         if (token2 != NULL)
         {
-            //write(fout, strrev(token2), strlen(token2));
-            //write(fout, "\n", 1);
             fprintf(fout, "%s\n", strrev(token2));
             ++line2;
             continue;
