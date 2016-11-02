@@ -55,3 +55,4 @@ File
 - 읽는 파일의 fopen(), fclose(), fread()를 open(), close(), read()로 변경
 - setvbuf() 사용, 출력 파일 접근 횟수를 줄이기 위해 버퍼링 사용(_IOFBF)
 - strrev() xor 연산 사용에서 temp를 이용한 swap으로 변경
+- 200MB 파일 merge 확인 (200MB + 200MB => 400MB)
