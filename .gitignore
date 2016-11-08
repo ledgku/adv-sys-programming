@@ -31,6 +31,7 @@ gen
 merge
 merge_reverse
 epoll
+chat
 f_out
 
 # Debug files
